@@ -1,8 +1,43 @@
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div *ngIf="peliculasSrv.pelicula">
+
+    <div class="row">
+      <div class="col col-11">
+        <h1 class="titulo">{{ peliculasSrv.pelicula.Title}}</h1>
+      </div>
+      <div class="col col-1" align="right">
+        <img src="./assets/favoritos.png" width="40px" height="40px" (click)="favoritosAdd()">
+      </div>
+    </div>
+    <hr>
+    <div class="row" *ngIf="peliculasSrv.pelicula.Title!='Pelicula no encontrada'">
+        <div class="col col-4" align="center">
+          <div *ngIf="peliculasSrv.pelicula.Poster!='N/A'">
+            <img [src]="peliculasSrv.pelicula.Poster" height="500">
+          </div>
+          <div *ngIf="peliculasSrv.pelicula.Poster==='N/A'">
+            <img src="./assets/no-imagen-600x426.jpg" height="400">
+          </div>
+        </div>
+        <div class="col col-8">
+          <h3>Género</h3> 
+          <p>{{ peliculasSrv.pelicula.Genre}}</p>
+          <h3>{{ peliculasSrv.pelicula.Country }} {{ peliculasSrv.pelicula.Year }} ({{ peliculasSrv.pelicula.Language }}) </h3>
+          <hr>
+          <p align="jutify">{{ peliculasSrv.pelicula.Plot }}</p>
+        </div>
+    </div>
+  
+</div>
+
+<div *ngIf="!peliculasSrv.pelicula">
+
+  <div class="text-center">
+    <h1>Buscador de películas</h1>
+    <hr>
   </div>
+
+  <div class="text-center">
+    <h4>Introducer el título de la película y pulsa buscar.</h4>
+  </div>
+
 </div>

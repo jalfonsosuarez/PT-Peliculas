@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { PeliculasService } from '../../services/peliculas.service';
+import { Pelicula } from 'src/models/pelicula.model';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.sass']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent {
 
-  constructor() { }
+  // private pelicula;
 
-  ngOnInit() {
+  constructor( private peliculasSrv: PeliculasService) { }
+
+  favoritosAdd() {
+
   }
 
 }
