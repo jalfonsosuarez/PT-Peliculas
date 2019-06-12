@@ -5,7 +5,7 @@
         <h1 class="titulo">{{ peliculasSrv.pelicula.Title}}</h1>
       </div>
       <div class="col col-1" align="right">
-        <img src="./assets/favoritos.png" width="40px" height="40px" (click)="favoritosAdd()">
+        <img src="./assets/favoritos.png" width="40px" height="40px" (click)="favoritosAdd( peliculasSrv.pelicula )">
       </div>
     </div>
     <hr>
